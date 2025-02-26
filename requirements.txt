@@ -8,7 +8,6 @@ parso==0.8.4
 platformdirs==4.3.6
 prompt_toolkit==3.0.50
 psutil==7.0.0
-psycopg2==2.9.10
 pure_eval==0.2.3
 Pygments==2.19.1
 python-dateutil==2.9.0.post0
