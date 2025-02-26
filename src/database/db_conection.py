@@ -1,26 +1,14 @@
-##*import psycopg2
-#import json
-
-# Cargar credenciales (usa la ruta correcta)
-#with open("credentials.json", "r") as file:
-#   conexion = json.load(file)
-
-#try:
-#    # Conectar a PostgreSQL
-#    connection = psycopg2.connect(**conexion)
-#    print(" Conexión exitosa a PostgreSQL")
-
-#except psycopg2.Error as err:
-#    print(f" Error al conectar a PostgreSQL: {err}")
-
 import psycopg2
-import json
+import os
 
-# Cargar credenciales
-with open("credentials.json", "r") as file:
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+CREDENTIALS_PATH = os.path.join(BASE_DIR, "credentials.json")
+
+with open(CREDENTIALS_PATH, "r") as file:
     credentials = json.load(file)
 
 def connect_db(db_name="postgres"):
+
     """Conectar a PostgreSQL."""
     return psycopg2.connect(
         dbname=db_name,
