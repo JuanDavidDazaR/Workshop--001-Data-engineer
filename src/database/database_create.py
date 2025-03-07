@@ -13,7 +13,6 @@ with open(CREDENTIALS_PATH, "r", encoding="utf-8") as file:
 db_name = credentials["db_name"]
 
 def create_database():
-    """Crea la base de datos si no existe."""
     try:
         engine = connect_db("postgres")
         with engine.connect() as connection:
@@ -23,16 +22,14 @@ def create_database():
 
             if not result:
                 connection.execute(text(f'CREATE DATABASE "{db_name}";'))
-                print(f"Base de datos '{db_name}' creada exitosamente.")
+                print(f"Data base '{db_name}' successfully created.")
             else:
-                print(f"La base de datos '{db_name}' ya existe.")
+                print(f"Data base '{db_name}' already exists.")
 
     except Exception as e:
-        print(f"Error al crear la base de datos: {e}")
+        print(f"Error when creating the database: {e}")
 
-if __name__ == "__main__":
-    print("Creando la base de datos...")
-    create_database()
+
 
 
 
