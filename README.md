@@ -1,108 +1,142 @@
-# Workshop--001-Data-engineer
-This project is part of a Data Engineer exercise. Its objective is to demonstrate skills in data management, transformation and visualization using Python, PostgreSQL and Jupyter Notebook.  Starting from a CSV file with 50,000 records about candidates in selection processes.
+# Workshop-001: Data Engineer
 
-# Data Engineering and EDA Project
+**By Juan David Daza**
 
-**Por Juan Dvaid Daza**
+This project is part of a Data Engineering exercise. Its objective is to demonstrate skills in data management, transformation, and visualization using Python, PostgreSQL, and Jupyter Notebook. The dataset consists of a CSV file with 50,000 records of candidates who participated in selection processes.
 
-## Visión General
-Este proyecto explora un conjunto de datos utilizando técnicas de **Ingeniería de Datos** y **Análisis Exploratorio de Datos (EDA)**. Se han empleado herramientas como **Python, PostgreSQL y Power BI** para transformar y visualizar la información de manera efectiva.
+## Overview
+This project explores a dataset using Data Engineering and Exploratory Data Analysis (EDA) techniques. The tools employed include Python, PostgreSQL, and Power BI to efficiently transform and visualize information.
 
-El propósito principal es analizar la estructura del conjunto de datos, identificar patrones relevantes y evaluar la calidad de los datos para su uso en la toma de decisiones.
+The primary goal is to analyze the dataset structure, identify relevant patterns, and assess data quality for decision-making purposes.
 
-## Objetivos Clave
-- Implementar un proceso ETL eficiente para manejo de datos.
-- Realizar limpieza y transformación de los datos.
-- Explorar patrones y relaciones en los datos, incluyendo:
-  - Análisis de patrones de contratación.
-  - Identificación de anomalías en los datos.
-  - Relación entre la antigüedad y la experiencia de los empleados.
-- Crear visualizaciones claras y efectivas en Power BI para comunicar hallazgos clave.
+## Key Objectives
+- Implement an efficient ETL process for data handling.
+- Perform data cleaning and transformation.
+- Explore patterns and relationships in the data, including:
+  - Descriptive analysis.
+  - Anomaly detection.
+  - Data visualization.
+- Create clear and effective visualizations in Power BI.
 
-## Tecnologías Utilizadas
-- **Python**: Procesamiento y análisis de datos.
-- **Jupyter Notebook**: Análisis interactivo.
-- **PostgreSQL**: Gestión y almacenamiento de bases de datos.
-- **Power BI**: Creación de dashboards y visualizaciones.
+## Technologies Used
+- **Python**: Data processing and analysis.
+- **Jupyter Notebook**: Interactive analysis.
+- **PostgreSQL**: Database management and storage.
+- **Power BI**: Dashboard creation.
 
-## Tabla de Contenidos
-1. Prerrequisitos
-2. Instalación
-   - Configuración del entorno virtual de Python
-   - Configuración de PostgreSQL
-3. Uso
-4. Integración con Power BI
-5. Documentación
-
-## Prerrequisitos
-Antes de comenzar, asegúrate de cumplir con los siguientes requisitos:
+## Prerequisites
+Before starting, make sure you have the following requirements:
 - **Python**: 3.12.9
 - **PostgreSQL**: 14+
-- **Power BI Desktop** para visualización
-- **Visual Studio Code** o tu IDE de Python preferido
+- **Power BI Desktop** for visualization
+- **Visual Studio Code** or your preferred Python IDE
 
-## Instalación
-
-### Clonar el repositorio
+## Project Setup
+### Clone the Repository
 ```sh
 git clone https://github.com/JuanDavidDazaR/Workshop--001-Data-engineer.git
 ```
-## Configuración del Entorno Virtual
-### Crear y activar entorno virtual
+
+### Virtual Environment Setup
+#### Create and Activate a Virtual Environment
 ```sh
 python -m venv venv
 ```
+
 **Windows (CMD):**
 ```sh
 venv\Scripts\activate.bat
 ```
+
 **Windows (PowerShell):**
 ```sh
 venv\Scripts\Activate.ps1
 ```
+
 **Mac/Linux:**
 ```sh
 source venv/bin/activate
 ```
-### Instalar dependencias en el entorno virtual
+
+#### Install Dependencies in the Virtual Environment
 ```sh
 pip install -r requirements.txt
 ```
 
-## Configuración de PostgreSQL
-1. Crea una base de datos PostgreSQL (por ejemplo, `project_db`).
-2. Configura las variables de entorno en un archivo `.env`:
-```sh
-PG_USER=tu_usuario_postgres
-PG_PASSWORD=tu_contraseña_postgres
-PG_HOST=localhost_o_host_remoto
-PG_PORT=5432
-PG_DATABASE=project_db
-```
-3. Asegúrate de que la estructura de la base de datos coincida con los datos analizados.
+## PostgreSQL Configuration
+1. Ensure PostgreSQL is installed.
+2. Take note of the PostgreSQL username and password for authentication.
 
-## Uso
-### Ejecutar el script ETL para cargar datos en PostgreSQL
+## Before Running the Project
+Before starting the project, it is essential to create a **credentials.json** file. This file should be located inside the `src/database` directory. You can create it using the following commands:
+
+#### Windows (PowerShell or CMD):
+```sh
+echo {} > src/database/credentials.json
+```
+
+#### macOS or Linux (Terminal):
+```sh
+touch src/database/credentials.json
+```
+
+This command will create an empty `credentials.json` file in the `src/database/` directory.
+
+### Setting Up Database Credentials
+#### **Windows (PowerShell or CMD):**
+```sh
+notepad src/database/credentials.json
+```
+
+#### **macOS or Linux:**
+```sh
+nano src/database/credentials.json
+```
+
+You can use **nano** or **vim** to edit the file.
+
+#### Database Credentials Format
+To connect to the database, the `credentials.json` file must have the following structure:
+```json
+{
+    "host": "your_host",
+    "user": "your_user",  
+    "password": "your_password",
+    "port": your_port,
+    "db_name": "your_database"
+}
+```
+The **user** and **password** should match your PostgreSQL credentials. Additionally, ensure that **host** and **db_name** are enclosed in double quotes `""`.
+
+<details>
+  <summary>💡 Tip</summary>
+  You can assign any name to **db_name**, and the database will be created with that name. However, avoid using an existing database name in PostgreSQL, as it may cause conflicts.
+</details>
+
+## Running the Project
+### Execute the ETL Script to Load Data into PostgreSQL
 ```sh
 python main.py
 ```
 
-## Integración con Power BI
-### Conéctate a PostgreSQL
-1. Abre **Power BI Desktop**.
-2. Selecciona **Obtener datos > Base de datos de PostgreSQL**.
-3. Ingresa los detalles de conexión:
-   - **Servidor**: `tu_host_postgres`
-   - **Base de datos**: `project_db`
-   - **Autenticación**: Nombre de usuario/Contraseña
-   - **Usuario**: `PG_USER` desde `.env`
-   - **Contraseña**: `PG_PASSWORD` desde `.env`
-4. Carga los datos y crea visualizaciones interactivas.
+## Power BI Integration
+### Connect to PostgreSQL
+To load the database into Power BI and generate visualizations, follow these steps:
 
-## Ejemplos de Gráficos en Power BI
-- **Distribución de empleados según experiencia**
-- **Tendencias en patrones de contratación**
-- **Análisis de calidad de los datos y detección de anomalías**
+1. Open Power BI and select **Get Data**.
+2. Search for and select **PostgreSQL** as the data source.
+3. In the **Server** field, enter `localhost`.
+4. In the **Database** field, enter the name of the database used in this project.
+5. Click **Connect** and, if required, enter your PostgreSQL username and password.
+6. Select the desired table within the database and click **Load**.
+7. Once the table is loaded, the data will be available for visualization and report generation in Power BI.
+
+## Example Visualizations in Power BI
+- **Hires by Technology** (Pie Chart)
+- **Hires by Year** (Horizontal Bar Chart)
+- **Hires by Seniority** (Bar Chart)
+- **Hires by Country Over the Years** (Multi-line Chart: USA, Brazil, Colombia, and Ecuador only)
 
 ---
-Este README proporciona una guía estructurada para configurar y ejecutar el análisis de datos, facilitando su implementación y replicación. 🚀
+
+
