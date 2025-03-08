@@ -147,7 +147,7 @@ To connect to the database, the `credentials.json` file must have the following 
     "port": your_port,
     "db_name": "your_database"
 }
-
+```
 > 💡 **Tip** 
 > In “db_name”: “your_database”, you can place the name you want to the database, but remember that they must be a name that you have not used for another database.
 
@@ -182,5 +182,3 @@ To load the database into Power BI and generate visualizations, follow these ste
 -   **Hires by Year** (Horizontal Bar Chart)
 -   **Hires by Seniority** (Bar Chart)
 -   **Hires by Country Over the Years** (Multi-line Chart: USA, Brazil, Colombia, and Ecuador only)
-
-----------
