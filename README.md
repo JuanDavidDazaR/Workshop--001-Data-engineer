@@ -42,12 +42,14 @@ Before starting, make sure you have the following requirements:
 
 ```sh
 git clone https://github.com/JuanDavidDazaR/Workshop--001-Data-engineer.git
+
 ```
 
 Go to the project folder:
 
 ```sh
 cd Workshop--001-Data-engineer
+
 ```
 
 ### Virtual Environment Setup
@@ -56,30 +58,35 @@ cd Workshop--001-Data-engineer
 
 ```sh
 python -m venv venv
+
 ```
 
 **Windows (CMD):**
 
 ```sh
 venv\Scripts\activate.bat
+
 ```
 
 **Windows (PowerShell):**
 
 ```sh
 venv\Scripts\Activate.ps1
+
 ```
 
 **Mac/Linux:**
 
 ```sh
 source venv/bin/activate
+
 ```
 
 #### Install Dependencies in the Virtual Environment
 
 ```sh
 pip install -r requirements.txt
+
 ```
 
 ## PostgreSQL Configuration
@@ -95,12 +102,14 @@ Before starting the project, it is essential to create a **credentials.json** fi
 
 ```sh
 echo {} > src/database/credentials.json
+
 ```
 
 #### macOS or Linux (Terminal):
 
 ```sh
 touch src/database/credentials.json
+
 ```
 
 This command will create an empty `credentials.json` file in the `src/database/` directory.
@@ -114,12 +123,14 @@ This command will create an empty `credentials.json` file in the `src/database/`
 
 ```sh
 notepad src/database/credentials.json
+
 ```
 
 #### **macOS or Linux:**
 
 ```sh
 nano src/database/credentials.json
+
 ```
 
 You can use **nano** or **vim** to edit the file.
@@ -136,15 +147,17 @@ To connect to the database, the `credentials.json` file must have the following 
     "port": your_port,
     "db_name": "your_database"
 }
-```
 
-The **user** and **password** should match your PostgreSQL credentials. Additionally, ensure that **host** and **db_name** are enclosed in double quotes `""` and save the file.
+> 💡 **Tip** 
+> In “db_name”: “your_database”, you can place the name you want to the database, but remember that they must be a name that you have not used for another database.
+
+The **user** and **password** should match your PostgreSQL credentials. Additionally, ensure that **host** and **db_name** are enclosed in double quotes `""` and save the file. The general port for PostgreSQL is 5432
 
 > ⚠ **Warning**  
 > When saving the file, whether on Windows or another operating system, it is important to ensure that you save the `credentials.json` file in UTF-8 format.
 
 ### Start Browsing the Notebooks:
-    
+
 -   001_LoadRawData
 -   002_EDA
 -   003_LoadCleanData
@@ -170,3 +183,4 @@ To load the database into Power BI and generate visualizations, follow these ste
 -   **Hires by Seniority** (Bar Chart)
 -   **Hires by Country Over the Years** (Multi-line Chart: USA, Brazil, Colombia, and Ecuador only)
 
+----------
