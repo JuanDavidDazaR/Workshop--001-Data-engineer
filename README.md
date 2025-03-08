@@ -42,14 +42,13 @@ Before starting, make sure you have the following requirements:
 
 ```sh
 git clone https://github.com/JuanDavidDazaR/Workshop--001-Data-engineer.git
-
 ```
-go to the project folder
 
-```
+Go to the project folder:
+
+```sh
 cd Workshop--001-Data-engineer
 ```
-
 
 ### Virtual Environment Setup
 
@@ -57,35 +56,30 @@ cd Workshop--001-Data-engineer
 
 ```sh
 python -m venv venv
-
 ```
 
 **Windows (CMD):**
 
 ```sh
 venv\Scripts\activate.bat
-
 ```
 
 **Windows (PowerShell):**
 
 ```sh
 venv\Scripts\Activate.ps1
-
 ```
 
 **Mac/Linux:**
 
 ```sh
 source venv/bin/activate
-
 ```
 
 #### Install Dependencies in the Virtual Environment
 
 ```sh
 pip install -r requirements.txt
-
 ```
 
 ## PostgreSQL Configuration
@@ -101,32 +95,31 @@ Before starting the project, it is essential to create a **credentials.json** fi
 
 ```sh
 echo {} > src/database/credentials.json
-
 ```
 
 #### macOS or Linux (Terminal):
 
 ```sh
 touch src/database/credentials.json
-
 ```
 
 This command will create an empty `credentials.json` file in the `src/database/` directory.
 
 ### Setting Up Database Credentials
 
+> ⚠ **Warning**  
+> When saving the file, whether on Windows or another operating system, it is important to ensure that you save the `credentials.json` file in UTF-8 format.
+
 #### **Windows (PowerShell or CMD):**
 
 ```sh
 notepad src/database/credentials.json
-
 ```
 
 #### **macOS or Linux:**
 
 ```sh
 nano src/database/credentials.json
-
 ```
 
 You can use **nano** or **vim** to edit the file.
@@ -143,21 +136,18 @@ To connect to the database, the `credentials.json` file must have the following 
     "port": your_port,
     "db_name": "your_database"
 }
-
 ```
 
-The **user** and **password** should match your PostgreSQL credentials. Additionally, ensure that **host** and **db_name** are enclosed in double quotes `""`.
+The **user** and **password** should match your PostgreSQL credentials. Additionally, ensure that **host** and **db_name** are enclosed in double quotes `""` and save the file.
 
-## Running the Project
+> ⚠ **Warning**  
+> When saving the file, whether on Windows or another operating system, it is important to ensure that you save the `credentials.json` file in UTF-8 format.
 
-### Execute the ETL Script to Load Data into PostgreSQL
-
-Start browsing the notebooks:
+### Start Browsing the Notebooks:
     
-
 -   001_LoadRawData
 -   002_EDA
--   003_LoadCleanData.
+-   003_LoadCleanData
 
 ## Power BI Integration
 
@@ -165,12 +155,12 @@ Start browsing the notebooks:
 
 To load the database into Power BI and generate visualizations, follow these steps:
 
-1.  Open Power BI and select Get Data.
-2.  Search for and select PostgreSQL as the data source.
-3.  In the Server field.
-4.  In the Database field, enter the name of the database used in this project.
-5.  Click Connectand, if required, enter your PostgreSQL username and password.
-6.  Select the desired table within the database and click Load.
+1.  Open Power BI and select **Get Data**.
+2.  Search for and select **PostgreSQL** as the data source.
+3.  Enter your **server address** in the **Server** field.
+4.  In the **Database** field, enter the name of the database used in this project.
+5.  Click **Connect**, and if required, enter your PostgreSQL username and password.
+6.  Select the desired table within the database and click **Load**.
 7.  Once the table is loaded, the data will be available for visualization and report generation in Power BI.
 
 ## Example Visualizations in Power BI
@@ -179,6 +169,4 @@ To load the database into Power BI and generate visualizations, follow these ste
 -   **Hires by Year** (Horizontal Bar Chart)
 -   **Hires by Seniority** (Bar Chart)
 -   **Hires by Country Over the Years** (Multi-line Chart: USA, Brazil, Colombia, and Ecuador only)
-
-----------
 
