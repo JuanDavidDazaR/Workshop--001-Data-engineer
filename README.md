@@ -161,7 +161,8 @@ The **user** and **password** should match your PostgreSQL credentials. Addition
 -   001_LoadRawData
 -   002_EDA
 -   003_LoadCleanData
-
+> 💡 **Tip** 
+> Remember to use venv's virtual environment when running the notebooks
 ## Power BI Integration
 
 ### Connect to PostgreSQL
